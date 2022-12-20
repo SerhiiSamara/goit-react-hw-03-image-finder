@@ -51,7 +51,7 @@ export class App extends Component {
       }
     }
     if (this.state.page > 1) {
-      this.onSmoothScroll(this.state.page);
+      this.onSmoothScroll();
     }
   }
 
@@ -74,10 +74,10 @@ export class App extends Component {
     this.setState({ currentImage: null });
   };
 
-  onSmoothScroll = number => {
+  onSmoothScroll = () => {
     const pageHeight = document.documentElement.scrollHeight;
     window.scroll({
-      top: pageHeight * number,
+      top: pageHeight,
       left: 0,
       behavior: 'smooth',
     });
