@@ -34,9 +34,10 @@ export class App extends Component {
         const searchImages = await fetchImages(
           this.state.saerchQuery,
           this.state.page
-        );
-        this.setState(prevState => ({
-          images: [...prevState.images, ...searchImages],
+				);
+				const searchImagesFormated = searchImages.map(searchImage=>({ id:searchImage.id, webformatURL:searchImage.webformatURL, largeImageURL:searchImage.largeImageURL }));
+				this.setState(prevState => ({
+          images: [...prevState.images, ...searchImagesFormated],
         }));
         if (searchImages.length !== 12) {
           this.setState.apply({ isloadMore: false });

@@ -9,6 +9,10 @@ import {
 } from './Searchbar.styled';
 
 export class Searchbar extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
+
   handlSubmit = e => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -36,7 +40,3 @@ export class Searchbar extends Component {
     );
   }
 }
-
-Searchbar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};
